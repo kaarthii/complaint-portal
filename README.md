@@ -38,7 +38,7 @@ This project is built using a modern, robust technology stack.
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 To run this project locally, you'll need to set up both the backend and frontend.
 
