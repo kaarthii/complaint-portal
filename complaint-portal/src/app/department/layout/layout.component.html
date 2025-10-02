@@ -1,0 +1,22 @@
+<div class="layout-container">
+  <div class="sidebar">
+    <div>
+      <h4 class="text-success mb-4">Department Portal</h4>
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a routerLink="/department/dashboard" routerLinkActive="active" class="nav-link">
+            Dashboard
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="logout-container">
+      <button class="btn btn-danger w-100" (click)="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

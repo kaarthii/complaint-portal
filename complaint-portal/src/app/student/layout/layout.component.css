@@ -1,0 +1,18 @@
+.sidebar {
+  width: 280px;
+  flex-shrink: 0; 
+  border-right: 1px solid #dee2e6;
+}
+
+.main-content {
+  overflow-y: auto; 
+}
+
+.nav-link.active {
+  background-color: #0d6efd !important; 
+  color: white !important;
+}
+
+.nav-link {
+    color: #343a40;
+}

@@ -1,0 +1,38 @@
+<div class="login-container d-flex justify-content-center align-items-center">
+  <div class="card shadow-sm login-card">
+    <div class="card-header bg-white border-0">
+      <ul class="nav nav-tabs card-header-tabs justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" [class.active]="selectedRole === 'student'" (click)="selectRole('student')">Student</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [class.active]="selectedRole === 'department'" (click)="selectRole('department')">Department</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [class.active]="selectedRole === 'admin'" (click)="selectRole('admin')">Admin</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body p-4">
+      <h4 class="card-title text-center mb-4">Login as {{ selectedRole | titlecase }}</h4>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" id="username" class="form-control" formControlName="username" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" class="form-control" formControlName="password" required>
+        </div>
+
+        <div *ngIf="error" class="alert alert-danger mt-3">
+          {{ error }}
+        </div>
+
+        <div class="d-grid mt-4">
+          <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

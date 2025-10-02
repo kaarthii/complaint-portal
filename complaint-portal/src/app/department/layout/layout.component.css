@@ -1,0 +1,36 @@
+.layout-container {
+  display: flex;
+  height: 100vh; /* 100% of the viewport height */
+}
+
+/* Define the sidebar's appearance and internal layout */
+.sidebar {
+  width: 280px;
+  flex-shrink: 0; /* Prevents the sidebar from shrinking */
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-right: 1px solid #dee2e6;
+  
+  /* Use flexbox to position the top and bottom content */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pushes the top and bottom divs apart */
+}
+
+/* Define the main content area's behavior */
+.main-content {
+  flex-grow: 1; /* Allows this area to fill the remaining space */
+  padding: 1.5rem;
+  /* This gives the content area its OWN scrollbar if the content overflows */
+  overflow-y: auto; 
+}
+
+/* Styling for the active link in the sidebar */
+.nav-link.active {
+  background-color: #198754 !important; /* Bootstrap success green */
+  color: white !important;
+}
+
+.nav-link {
+    color: #343a40;
+}

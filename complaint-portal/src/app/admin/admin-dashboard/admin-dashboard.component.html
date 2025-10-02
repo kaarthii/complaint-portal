@@ -1,0 +1,64 @@
+<h1 class="mb-4">Admin Dashboard</h1>
+
+<div class="row mb-5">
+  <div class="col-lg-6">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">Total Complaints per Department</h5>
+        <canvas baseChart
+          [data]="barChartData"
+          [options]="barChartOptions"
+          [type]="barChartType">
+        </canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">Status Breakdown by Department</h5>
+        <canvas baseChart
+          [data]="groupedBarChartData"
+          [options]="groupedBarChartOptions"
+          [type]="groupedBarChartType">
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="mb-3">All Complaints by Department</h2>
+<div *ngIf="departmentNames.length === 0" class="alert alert-info">
+  No complaints found in the system.
+</div>
+<div *ngFor="let dept of departmentNames" class="mb-5">
+  <h4 class="department-header">{{ dept }}</h4>
+  <div class="table-responsive">
+    <table class="table table-sm table-hover align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Student Name</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Submitted On</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let complaint of groupedComplaints[dept]">
+          <td>{{ complaint.id }}</td>
+          <td>{{ complaint.studentName }}</td>
+          <td>{{ complaint.category }}</td>
+          <td>{{ complaint.description }}</td>
+          <td>{{ complaint.createdAt | date:'yyyy-MM-dd HH:mm' }}</td>
+          <td>
+            <span class="badge" [ngClass]="getStatusClass(complaint.status)">
+              {{ complaint.status }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+.complaint-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}

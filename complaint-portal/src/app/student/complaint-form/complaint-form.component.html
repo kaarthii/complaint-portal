@@ -1,0 +1,20 @@
+<h1 class="mb-4">Register a New Complaint</h1>
+
+<form [formGroup]="complaintForm" (ngSubmit)="onSubmit()" class="complaint-form">
+  <div class="mb-3">
+    <label for="department" class="form-label">Department (e.g., IT, Mess)</label>
+    <input type="text" id="department" class="form-control" formControlName="department" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="category" class="form-label">Category (e.g., Wi-Fi Issue)</label>
+    <input type="text" id="category" class="form-control" formControlName="category" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea id="description" class="form-control" rows="5" formControlName="description" required></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="complaintForm.invalid">Submit Complaint</button>
+</form>

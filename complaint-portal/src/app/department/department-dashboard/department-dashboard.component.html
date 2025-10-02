@@ -1,0 +1,71 @@
+<h1 class="mb-4">Department Dashboard</h1>
+
+<div class="row mb-5">
+  <div class="col-lg-6">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">Complaints by Day</h5>
+        <ngx-charts-bar-vertical
+  [view]="view"
+  [results]="complaintsByDay"
+  [xAxis]="true"
+  [yAxis]="true"
+  [legend]="false"
+  [barPadding]="20"  xAxisLabel="Date"
+  yAxisLabel="Number of Complaints">
+</ngx-charts-bar-vertical>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">Complaints by Status</h5>
+        <ngx-charts-pie-chart
+          [view]="view"
+          [results]="complaintsByStatus"
+          [labels]="false"               
+          [customColors]="getChartColor"  
+          [legend]="false"
+          
+          [legendPosition]="legendPosition">
+        </ngx-charts-pie-chart>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="mb-3">Manage Complaints</h2>
+<div class="table-responsive">
+  <table class="table table-hover align-middle">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Student Name</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Current Status</th>
+        <th>Change Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let complaint of complaints">
+        <td>{{ complaint.id }}</td>
+        <td>{{ complaint.studentName }}</td>
+        <td>{{ complaint.category }}</td>
+        <td>{{ complaint.description }}</td>
+        <td><span class="badge" [ngClass]="getStatusClass(complaint.status)">{{ complaint.status }}</span></td>
+        <td>
+          <select class="form-select form-select-sm" 
+                  [ngModel]="complaint.status" 
+                  (change)="onStatusChange(complaint, $event)">
+            <option value="SUBMITTED">Submitted</option>
+            <option value="IN_PROGRESS">In Progress</option>
+            <option value="COMPLETED">Completed</option>
+            <option value="REJECTED">Rejected</option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,32 @@
+<h1 class="mb-4">My Complaints</h1>
+
+<div *ngIf="complaints.length > 0; else noComplaints" class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Category</th>
+        <th scope="col">Department</th>
+        <th scope="col">Description</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let complaint of complaints">
+        <th scope="row">{{ complaint.id }}</th>
+        <td>{{ complaint.category }}</td>
+        <td>{{ complaint.department }}</td>
+        <td>{{ complaint.description }}</td>
+        <td><span class="badge" [ngClass]="getStatusClass(complaint.status)">
+    {{ complaint.status }}
+  </span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noComplaints>
+  <div class="alert alert-info" role="alert">
+    You have not submitted any complaints yet.
+  </div>
+</ng-template>

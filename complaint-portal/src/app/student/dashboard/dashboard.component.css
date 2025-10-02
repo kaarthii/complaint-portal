@@ -1,0 +1,11 @@
+
+:host ::ng-deep .ngx-charts-outer .ngx-charts-legend.below {
+  display: flex;
+  justify-content: center; 
+  flex-wrap: wrap; 
+  margin-top: 15px; 
+}
+
+:host ::ng-deep .ngx-charts-legend-item {
+  margin: 0 10px; 
+}
