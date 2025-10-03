@@ -88,20 +88,6 @@ To run this project locally, you'll need to set up both the backend and frontend
     ```
     The frontend will be available at `http://localhost:4200`.
 
----
-
-## User Roles & Credentials
-
-The application can be tested using the following pre-configured user roles. The passwords for all users are hashed in the database.
-
-| Role       | Username     | Password    |
-|------------|--------------|-------------|
-| Student    | `student1`   | `studentpass` |
-| Department | `it_staff`   | `itpass`      |
-| Department | `mess_staff` | `messpass`    |
-| Admin      | `admin`      | `adminpass`   |
-
----
 
 ## Developer
 
